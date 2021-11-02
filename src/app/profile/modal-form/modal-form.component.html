@@ -1,0 +1,11 @@
+<form [formGroup]="modalForm" action="" (ngSubmit)="submitForm()" id="myForm">
+  <app-input
+    [control]="modalForm.controls.title"
+    placeholder="Enter a title"
+  ></app-input>
+  <app-input
+    [control]="modalForm.controls.desc"
+    placeholder="Enter a description"
+    elemType="textarea"
+  ></app-input>
+</form>

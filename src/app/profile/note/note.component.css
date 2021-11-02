@@ -1,0 +1,25 @@
+.note {
+  position: relative;
+  background-color: #FFCCCC;
+  padding: 50px 0;
+}
+
+.ellipse {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+li {
+  cursor: pointer;
+}
+
+.edit {
+  color: #17A2B8;
+}
+
+.trash {
+  color: #DC3545;
+}

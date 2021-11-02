@@ -1,0 +1,27 @@
+<div class="text-end">
+  <button class="btn btn-primary mt-3" (click)="dismissModal()">
+    Add Note
+  </button>
+</div>
+<app-modal *ngIf="modalOpened" (dismiss)="dismissModal()">
+  <ng-container modalHeader>Add Note</ng-container>
+  <app-modal-form (clicked)="addNote($event)"></app-modal-form>
+  <ng-container modalFooter>
+    <button type="submit" class="btn btn-primary" form="myForm">
+      Add Note
+    </button>
+    <button type="button" class="btn btn-danger" (click)="dismissModal()">
+      Cancel
+    </button>
+  </ng-container>
+</app-modal>
+<div class="row pb-5">
+  <div class="col-md-4 mt-3" *ngFor="let note of userNotes; let i = index">
+    <app-note
+      (noteEditted)="editNote($event, i)"
+      (noteDeleted)="deleteNote(i)"
+      [title]="note.title"
+      [desc]="note.desc"
+    ></app-note>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<form
+  action=""
+  [formGroup]="signinForm"
+  class="w-50 m-auto position-absolute top-50 start-50 translate-middle"
+  (ngSubmit)="submitForm()"
+>
+  <app-input
+    placeholder="Enter your email"
+    [control]="signinForm.controls.email"
+  ></app-input>
+  <app-input
+    placeholder="Enter your password"
+    [control]="signinForm.controls.password"
+    inputType="password"
+  ></app-input>
+  <div
+    *ngIf="signinForm.errors?.invalidUorP"
+    class="mt-3 custom-invalid-feedback"
+  >
+    Invalid username or password
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary mt-3 w-100"
+    [disabled]="signinForm.invalid"
+  >
+    Sign in
+  </button>
+</form>
+<ng-particles [id]="id" [url]="particlesUrl"></ng-particles>

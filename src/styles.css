@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.custom-invalid-feedback {
+  color: #dc3545;
+}
+
+.tsparticles-canvas-el {
+  background-color: #191010;
+}

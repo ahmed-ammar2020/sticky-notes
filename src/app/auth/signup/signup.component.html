@@ -1,0 +1,42 @@
+<form
+  action=""
+  [formGroup]="signupForm"
+  class="w-75 m-auto position-absolute top-50 start-50 translate-middle"
+  (ngSubmit)="submitForm()"
+>
+  <div class="row">
+    <div class="col-md-6">
+      <app-input
+        [control]="signupForm.controls.first_name"
+        placeholder="Enter first name"
+      ></app-input>
+    </div>
+    <div class="col-md-6">
+      <app-input
+        [control]="signupForm.controls.last_name"
+        placeholder="Enter last name"
+      ></app-input>
+    </div>
+  </div>
+  <app-input
+    [control]="signupForm.controls.email"
+    placeholder="Enter Email"
+  ></app-input>
+  <app-input
+    [control]="signupForm.controls.password"
+    placeholder="Enter password"
+    inputType="password"
+  ></app-input>
+  <app-input
+    [control]="signupForm.controls.age"
+    placeholder="Enter Age"
+  ></app-input>
+  <button
+    type="submit"
+    class="btn btn-primary mt-3"
+    [disabled]="signupForm.invalid"
+  >
+    Sign up
+  </button>
+</form>
+<ng-particles [id]="id" [url]="particlesUrl"></ng-particles>

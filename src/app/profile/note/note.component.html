@@ -1,0 +1,75 @@
+<div class="d-flex justify-content-center align-items-center flex-column note">
+  <div class="btn-group dropend position-static">
+    <fa-icon
+      [icon]="faEllipsisV"
+      class="ellipse"
+      data-bs-toggle="dropdown"
+    ></fa-icon>
+    <ul class="dropdown-menu">
+      <li (click)="dismissEditModal()">
+        <a
+          class="
+            dropdown-item
+            d-flex
+            justify-content-between
+            align-items-center
+          "
+        >
+          Edit <fa-icon [icon]="faEdit" class="edit"></fa-icon>
+        </a>
+      </li>
+      <app-modal *ngIf="editModalOpened" (dismiss)="dismissEditModal()">
+        <ng-container modalHeader>Edit Note</ng-container>
+        <app-modal-form
+          [formValues]="formValues"
+          (clicked)="editNote($event)"
+        ></app-modal-form>
+        <ng-container modalFooter>
+          <button type="submit" class="btn btn-primary" form="myForm">
+            Edit Note
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="dismissEditModal()"
+          >
+            Cancel
+          </button>
+        </ng-container></app-modal
+      >
+      <li (click)="dismissDeleteNote()">
+        <a
+          class="
+            dropdown-item
+            d-flex
+            justify-content-between
+            align-items-center
+          "
+        >
+          Delete <fa-icon [icon]="faTrashAlt" class="trash"></fa-icon>
+        </a>
+      </li>
+      <app-modal *ngIf="deleteModalOpened" (dismiss)="dismissDeleteNote()">
+        <ng-container modalHeader>Edit Note</ng-container>
+        <div class="text-danger fw-bold text-center py-4">
+          <div>Are your sure?</div>
+          <div>Do you want to delete the note?</div>
+        </div>
+        <ng-container modalFooter>
+          <button type="button" class="btn btn-primary" (click)="deleteNote()">
+            Delete Note
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="dismissDeleteNote()"
+          >
+            Cancel
+          </button>
+        </ng-container></app-modal
+      >
+    </ul>
+  </div>
+  <h3>{{ title }}</h3>
+  <p class="lead">{{ desc }}</p>
+</div>

@@ -1,0 +1,44 @@
+<input
+  class="form-control mt-3"
+  [formControl]="control"
+  [type]="inputType"
+  [placeholder]="placeholder"
+  [ngClass]="{
+    'is-invalid': control.errors && control.touched && control.dirty
+  }"
+  *ngIf="elemType === 'input'"
+/>
+
+<textarea
+  [formControl]="control"
+  class="form-control mt-3"
+  rows="10"
+  *ngIf="elemType === 'textarea'"
+  [ngClass]="{
+    'is-invalid': control.errors && control.touched && control.dirty
+  }"
+  [placeholder]="placeholder"
+></textarea>
+
+<ng-container *ngIf="control.errors && control.touched && control.dirty">
+  <div *ngIf="control.errors.required" class="invalid-feedback">
+    this field is required
+  </div>
+  <div *ngIf="control.errors.minlength" class="invalid-feedback">
+    you entered {{ control.errors.minlength.actualLength }} chars, but you must
+    at least enter {{ control.errors.minlength.requiredLength }} chars
+  </div>
+  <div *ngIf="control.errors.maxlength" class="invalid-feedback">
+    you entered {{ control.errors.maxlength.actualLength }} chars, but you must
+    at most enter {{ control.errors.maxlength.requiredLength }} chars
+  </div>
+  <div *ngIf="control.errors.email" class="invalid-feedback">
+    Invalid email format
+  </div>
+  <div *ngIf="control.errors.min" class="invalid-feedback">
+    You have to be 18 years old
+  </div>
+  <div *ngIf="control.errors.nonUniqueEmail" class="invalid-feedback">
+    this email is already taken
+  </div>
+</ng-container>
